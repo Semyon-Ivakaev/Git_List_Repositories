@@ -36,18 +36,4 @@ class MainActivity : AppCompatActivity(), Navigator, FragmentListRepositoryClick
             .replace(R.id.main_fragment_container, FragmentRepositoryDetail.newInstance(item = item))
             .commit()
     }
-
-    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        if (keyCode == KeyEvent.KEYCODE_BACK && event?.getRepeatCount() == 0) {
-            val count: Int = supportFragmentManager.backStackEntryCount
-            Log.v("AppVerbose", count.toString())
-            if (count == 0) {
-                super.onBackPressed()
-            } else {
-                supportFragmentManager.popBackStack()
-            }
-            return true
-        }
-        return super.onKeyDown(keyCode, event)
-    }
 }
